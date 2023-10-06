@@ -1,0 +1,57 @@
+{% include 'adminheader.html'%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style type="text/css">
+   table{
+   border: 1px solid gray;
+   width: 80%;
+   padding: 10px;
+ }
+ tr{
+    border: 1px solid gray;
+    padding: 10px;
+    }
+    th{
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: center;
+    }
+    td{
+    border: 1px solid gray;
+    padding: 10px;
+    }
+    </style>
+<body>
+<h1 align="center"><font size="20" color="blue">users</font></h1>
+<table align="center">
+    <tr>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>qualification</th>
+        <th>Phone</th>
+        <th>Email</th>
+
+    </tr>
+    {% for row in data['emp']%}
+    <tr>
+        <td>{{row['firstname']}} {{row['lastname']}}</td>
+        <td> {{row['DOB']}}</td>
+        <td> {{row['gender']}}</td>
+        <td> {{row['qualification']}}</td>
+        <td> {{row['phone']}}</td>
+        <td> {{row['email']}}</td>
+        <td align="center"><a href="?action=delete&id={{row['employee_id']}}&id1={{row['login_id']}}"
+        class="btn btn-sm btn-danger" style="text-decoration: none; padding:10px;">Delete</a></td>
+    </tr>
+    <tr>
+    {% endfor %}
+    </table>
+</body>
+<br><br><br><br><br>
+<br><br><br><br><br>
+{% include 'footer.html' %}
